@@ -7,7 +7,7 @@ import org.junit.Test;
 public class LoginPageTest extends TestBase {
 
     @Test
-    @Description("Успешная авторизация")
+    @Description("Неуспешная авторизация. Неверный E-Mail и пароль.")
     public void loginWithIncorrectCredentialsTest() {
         setValue(loginPage.emailField, "testWrong@example.com");
         setValue(loginPage.passwordField, "testWrongPassword");
@@ -44,7 +44,7 @@ public class LoginPageTest extends TestBase {
     }
 
     @Test
-    @Description("Неуспешная авторизация. Поле  e-mail пустое.")
+    @Description("Неуспешная авторизация. Поле E-mail пустое.")
     public void loginWithEmptyEmailFieldTest() {
         setValue(loginPage.emailField, "");
         setValue(loginPage.passwordField, "validPassword");
@@ -56,7 +56,7 @@ public class LoginPageTest extends TestBase {
     }
 
     @Test
-    @Description("Неуспешная авторизация. Поле  e-mail пустое.")
+    @Description("Неуспешная авторизация. Поле Пароль пустое.")
     public void loginWithEmptyPasswordFieldTest() {
         setValue(loginPage.emailField, "valid@example.com");
         setValue(loginPage.passwordField, "");
