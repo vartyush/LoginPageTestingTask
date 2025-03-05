@@ -1,10 +1,20 @@
 package ru.protei;
 
-import io.qameta.allure.Description;
-import org.junit.Assert;
-import org.junit.Test;
+import jdk.jfr.Description;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 public class LoginPageTest extends TestBase {
+    @Test
+    @Description("Успешная авторизация.")
+    public void loginSuccsessToTheForm()  {
+        setValue(loginPage.emailField, "test@protei.ru");
+        setValue(loginPage.passwordField, "test");
+        click(loginPage.loginButton);
+        // Ожидание отображения сообщения об ошибке
+        assertIsDisplayed(applicationFormPage.authPage);
+    }
 
     @Test
     @Description("Неуспешная авторизация. Неверный E-Mail и пароль.")
@@ -15,7 +25,7 @@ public class LoginPageTest extends TestBase {
         // Ожидание отображения сообщения об ошибке
         waitUntilVisible(loginPage.errorMessage);
         // Проверка сообщения об ошибке
-        Assert.assertEquals("Неверный E-Mail или пароль", loginPage.errorMessage.getText());
+        Assertions.assertEquals("Неверный E-Mail или пароль", loginPage.errorMessage.getText());
     }
 
     @Test
@@ -28,7 +38,7 @@ public class LoginPageTest extends TestBase {
         // Ожидание отображения сообщения об ошибке
         waitUntilVisible(loginPage.errorMessage);
         // Проверка сообщения об ошибке
-        Assert.assertEquals("Неверный формат E-Mail", loginPage.errorMessage.getText());
+        Assertions.assertEquals("Неверный формат E-Mail", loginPage.errorMessage.getText());
     }
 
     @Test
@@ -40,7 +50,7 @@ public class LoginPageTest extends TestBase {
 
         waitUntilVisible(loginPage.errorMessage);
         // Проверка сообщения об ошибке
-        Assert.assertEquals("Неверный формат E-Mail", loginPage.errorMessage.getText());
+        Assertions.assertEquals("Неверный формат E-Mail", loginPage.errorMessage.getText());
     }
 
     @Test
@@ -52,7 +62,7 @@ public class LoginPageTest extends TestBase {
 
         waitUntilVisible(loginPage.errorMessage);
         // Проверка сообщения об ошибке
-        Assert.assertEquals("Неверный формат E-Mail", loginPage.errorMessage.getText());
+        Assertions.assertEquals("Неверный формат E-Mail", loginPage.errorMessage.getText());
     }
 
     @Test
@@ -64,7 +74,7 @@ public class LoginPageTest extends TestBase {
 
         waitUntilVisible(loginPage.errorMessage);
         // Проверка сообщения об ошибке
-        Assert.assertEquals("Неверный E-Mail или пароль", loginPage.errorMessage.getText());
+        Assertions.assertEquals("Неверный E-Mail или пароль", loginPage.errorMessage.getText());
     }
 
 }

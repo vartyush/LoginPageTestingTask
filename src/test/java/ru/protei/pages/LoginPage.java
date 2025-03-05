@@ -4,8 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.protei.TestBase;
 
-public class LoginPage  {
+public class LoginPage extends TestBase {
     private WebDriver driver;
     // Конструктор
     public LoginPage(WebDriver driver) {
@@ -24,5 +25,7 @@ public class LoginPage  {
 
     @FindBy(id = "authAlertsHolder")
     public WebElement errorMessage;
+
+
 }
 
